@@ -1,0 +1,17 @@
+<body style="height: 100%; width: 100%; margin: 0; padding: 0">
+  <div style="width: 100%" id="screenWidth"></div>
+</body>
+
+<script>
+  document.getElementById(
+    "screenWidth"
+  ).innerText = `Screen Width: ${window.innerWidth}px`;
+  for (let i = 0; i < window.innerWidth; i++) {
+    const pixel = document.createElement("div");
+    pixel.style.width = "1px";
+    pixel.style.height = "20px";
+    pixel.style.backgroundColor = `${i % 2 === 0 ? "blue" : "red"}`;
+    pixel.style.display = "inline-block";
+    document.body.appendChild(pixel);
+  }
+</script>
