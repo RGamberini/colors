@@ -1,5 +1,12 @@
 <body style="height: 100%; width: 100%; margin: 0; padding: 0">
   <div style="width: 100%" id="screenWidth"></div>
+
+  <div style="width: 100%">Canvas:</div>
+  <canvas
+    id="canvas"
+    style="margin-bottom: 10px; width: 100%; height: 20px"
+  ></canvas>
+  <div style="width: 100%">Raw divs:</div>
 </body>
 
 <script>
@@ -13,5 +20,14 @@
     pixel.style.backgroundColor = `${i % 2 === 0 ? "blue" : "red"}`;
     pixel.style.display = "inline-block";
     document.body.appendChild(pixel);
+  }
+
+  const canvas = document.getElementById("canvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = window.innerWidth;
+  canvas.height = 20;
+  for (let i = 0; i < window.innerWidth; i++) {
+    ctx.fillStyle = i % 2 === 0 ? "blue" : "red";
+    ctx.fillRect(i, 0, 1, 20);
   }
 </script>
